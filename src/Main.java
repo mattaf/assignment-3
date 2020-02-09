@@ -20,9 +20,17 @@ public class Main {
         sManage2.addClient(cl2);
         sManage2.addClient(cl5);
         sManage1.addClient(cl4);
+        sManage1.addEmployee(salesAssociate2);
+        sManage2.addEmployee(salesAssociate1);
+
+
         salesAssociate1.addClient(cl1);
         salesAssociate2.addClient(cl3);
         salesAssociate2.addClient(cl6);
+
+        System.out.println(salesAssociate1.toString1());
+        System.out.println(sManage1.toString1());
+        System.out.println(sManage2.toString1());
 
     }
 }

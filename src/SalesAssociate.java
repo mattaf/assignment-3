@@ -20,16 +20,16 @@ public class SalesAssociate extends Employee {
     }
 
     String helperClient(ArrayList<Client> clientArrayList){
-        String a= new String();
+        StringBuilder a = new StringBuilder();
         for (int i = 0; i < clientArrayList.size(); ++i){
-            a = clientArrayList.get(i).getClientName() + Integer.toString(clientArrayList.get(i).getClientID());
+            a.append(clientArrayList.get(i).getClientName()).append(" ").append(Integer.toString(clientArrayList.get(i).getClientID()));
         }
-        return a;
+        return a.toString();
     }
 
 
-    public String toString(){
-        return "SalesManager: " + this.getEmployeeName() + "." + "Sales Manager: " + this.getManager() + "Clients: " + this.helperClient(this.clientArrayList) + String.valueOf(this.bonus());
+    public String toString1(){
+        return "Sales Associate: " + this.getEmployeeName() + ". " + "Sales Manager: " + this.getManager().getEmployeeName() + " " + this.getManager().getSalesID() + ". "  + "Clients: " + this.helperClient(this.getClientArrayList()) + ". "  + "Bonus: " + String.valueOf(this.bonus());
     }
 
     double bonus(){

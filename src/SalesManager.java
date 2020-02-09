@@ -18,6 +18,12 @@ public class SalesManager extends Employee {
         this.manager = salesManager1;
     }
 
+    public ArrayList<Employee> addEmployee(Employee employee){
+        this.employees.add(employee);
+        return this.employees;
+    }
+
+
     protected ArrayList<Employee> getEmployees() {
         return employees;
     }
@@ -39,24 +45,23 @@ public class SalesManager extends Employee {
     }
 
     String helperClient(ArrayList<Client> clientArrayList){
-        String a= new String();
+        StringBuilder a = new StringBuilder();
         for (int i = 0; i < clientArrayList.size(); ++i){
-            a = clientArrayList.get(i).getClientName() + Integer.toString(clientArrayList.get(i).getClientID());
+            a.append(clientArrayList.get(i).getClientName()).append(" ").append(Integer.toString(clientArrayList.get(i).getClientID())).append(" ");
         }
-        return a;
+        return a.toString();
     }
 
     String helperEmployee(ArrayList<Employee> employees){
-        String b = new String();
+        StringBuilder b = new StringBuilder();
         for (int i = 0; i < employees.size(); ++i){
-            b = employees.get(i).getEmployeeName() + String.valueOf(employees.get(i).getSalesID());
+            b.append(employees.get(i).employeeName).append(" ").append(String.valueOf(employees.get(i).getSalesID()));
         }
-        return b;
+        return b.toString();
     }
 
 
-
-  public String toString(){
-        return "SalesManager: " + this.getEmployeeName() + "." + "Employees: " + this.helperEmployee(this.employees) + "Clients: " + this.helperClient(this.clientArrayList) + String.valueOf(this.bonus());
+  public String toString1(){
+        return "SalesManager: " + this.getEmployeeName() + ". " + "Employees: " + this.helperEmployee(this.employees) + " " + "Clients: " + this.helperClient(this.getClientArrayList()) + ". " + "Bonus: " + String.valueOf(this.bonus());
     }
 }
