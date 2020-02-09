@@ -38,7 +38,25 @@ public class SalesManager extends Employee {
         return 5000*employees.size() + 2000*this.getClientArrayList().size();
     }
 
-//    public String toString(){
-//
-//  }
+    String helperClient(ArrayList<Client> clientArrayList){
+        String a= new String();
+        for (int i = 0; i < clientArrayList.size(); ++i){
+            a = clientArrayList.get(i).getClientName() + Integer.toString(clientArrayList.get(i).getClientID());
+        }
+        return a;
+    }
+
+    String helperEmployee(ArrayList<Employee> employees){
+        String b = new String();
+        for (int i = 0; i < employees.size(); ++i){
+            b = employees.get(i).getEmployeeName() + String.valueOf(employees.get(i).getSalesID());
+        }
+        return b;
+    }
+
+
+
+  public String toString(){
+        return "SalesManager: " + this.getEmployeeName() + "." + "Employees: " + this.helperEmployee(this.employees) + "Clients: " + this.helperClient(this.clientArrayList) + String.valueOf(this.bonus());
+    }
 }
