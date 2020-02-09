@@ -19,14 +19,30 @@ public class SalesAssociate extends Employee {
         this.manager = manager;
     }
 
-    String helperClient(ArrayList<Client> clientArrayList){
-        StringBuilder a = new StringBuilder();
-        for (int i = 0; i < clientArrayList.size(); ++i){
-            a.append(clientArrayList.get(i).getClientName()).append(" ").append(Integer.toString(clientArrayList.get(i).getClientID()));
+
+    public void sortClient(ArrayList<Client> clientArrayList) {
+        int i, j;
+        for (i = 1; i < clientArrayList.size(); i++) {
+            Client temp = clientArrayList.get(i);
+            j = i;
+            while ((j > 0) && (clientArrayList.get(j - 1).getClientID()) > temp.getClientID()) {
+                clientArrayList.set(j, clientArrayList.get(j - 1));
+                j--;
+            }
+            clientArrayList.set(j, temp);
         }
-        return a.toString();
     }
 
+    String helperClient(ArrayList<Client> clientArrayList){
+        StringBuilder a = new StringBuilder();
+        int temp;
+        this.sortClient(clientArrayList);
+        for (int i = 0; i < clientArrayList.size(); ++i){
+            a.append(clientArrayList.get(i).getClientName()).append(" ").append(Integer.toString(clientArrayList.get(i).getClientID())).append(", ");
+        }
+        a = a.delete(a.length()-2, a.length());
+        return a.toString();
+    }
 
     public String toString1(){
         return "Sales Associate: " + this.getEmployeeName() + ". " + "Sales Manager: " + this.getManager().getEmployeeName() + " " + this.getManager().getSalesID() + ". "  + "Clients: " + this.helperClient(this.getClientArrayList()) + ". "  + "Bonus: " + String.valueOf(this.bonus());

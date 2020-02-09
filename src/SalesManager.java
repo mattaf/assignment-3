@@ -44,19 +44,35 @@ public class SalesManager extends Employee {
         return 5000*employees.size() + 2000*this.getClientArrayList().size();
     }
 
+    public void sortClient(ArrayList<Client> clientArrayList) {
+        int i, j;
+        for (i = 1; i < clientArrayList.size(); i++) {
+            Client temp = clientArrayList.get(i);
+            j = i;
+            while ((j > 0) && (clientArrayList.get(j - 1).getClientID()) > temp.getClientID()) {
+                clientArrayList.set(j, clientArrayList.get(j - 1));
+                j--;
+            }
+            clientArrayList.set(j, temp);
+        }
+    }
+
     String helperClient(ArrayList<Client> clientArrayList){
         StringBuilder a = new StringBuilder();
+        this.sortClient(clientArrayList);
         for (int i = 0; i < clientArrayList.size(); ++i){
-            a.append(clientArrayList.get(i).getClientName()).append(" ").append(Integer.toString(clientArrayList.get(i).getClientID())).append(" ");
+            a.append(clientArrayList.get(i).getClientName()).append(" ").append(Integer.toString(clientArrayList.get(i).getClientID())).append(", ");
         }
+        a = a.delete(a.length()-2, a.length());
         return a.toString();
     }
 
     String helperEmployee(ArrayList<Employee> employees){
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < employees.size(); ++i){
-            b.append(employees.get(i).employeeName).append(" ").append(String.valueOf(employees.get(i).getSalesID()));
+            b.append(employees.get(i).getEmployeeName()).append(" ").append(String.valueOf(employees.get(i).getSalesID())).append(", ");
         }
+        b = b.delete(b.length()-2,b.length());
         return b.toString();
     }
 

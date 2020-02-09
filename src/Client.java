@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 public class Client {
 
     private int clientID;
     private String clientName;
     private Employee employee;
 
-    public Client(int clientID, String clientName, Employee employee){
+    public Client(int clientID, String clientName, Employee employee) {
         this.clientID = clientID;
         this.clientName = clientName;
         this.employee = employee;
@@ -34,11 +36,11 @@ public class Client {
         this.employee = employee;
     }
 
-    public double totalSales(){
+    public double totalSales() {
         return 0.0;
     }
 
-    public String toString(){
-        return "Client:" + this.clientName + "." + "salesEmployee: " + this.employee.getEmployeeName() + " " + this.employee.getSalesID();
+    public String toString() {
+        return "Client: " + this.clientName + ". " + "SalesEmployee: " + this.employee.getEmployeeName() + " " + this.employee.getSalesID();
     }
 }

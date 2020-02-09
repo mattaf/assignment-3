@@ -28,9 +28,16 @@ public class Main {
         salesAssociate2.addClient(cl3);
         salesAssociate2.addClient(cl6);
 
-        System.out.println(salesAssociate1.toString1());
         System.out.println(sManage1.toString1());
         System.out.println(sManage2.toString1());
+        System.out.println(salesAssociate1.toString1());
+        System.out.println(salesAssociate2.toString1());
+        System.out.println(cl1.toString());
+        System.out.println(cl2.toString());
+        System.out.println(cl3.toString());
+        System.out.println(cl4.toString());
+        System.out.println(cl5.toString());
+        System.out.println(cl6.toString());
 
     }
 }
