@@ -1,22 +1,14 @@
 import java.util.ArrayList;
 
-public class SalesAssociate {
+public class SalesAssociate extends Employee{
     protected String employeeName;
     protected SalesManager manager;
     protected long salesID;
+    private ArrayList<Client> clientArrayList = new ArrayList<Client>();
 
-    protected SalesAssociate(String employeeName, SalesManager manager, long salesID){
-        this.employeeName = employeeName;
+    protected SalesAssociate(SalesManager manager){
+        super(clientArrayList, employeeName, salesID);
         this.manager = manager;
-        this.salesID = salesID;
-    }
-
-    protected String getEmployeeName() {
-        return employeeName;
-    }
-
-    protected void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
     }
 
     protected SalesManager getManager() {
@@ -27,14 +19,10 @@ public class SalesAssociate {
         this.manager = manager;
     }
 
-    protected long getSalesID() {
-        return salesID;
-    }
-
-    protected void setSalesID(long salesID) {
-        this.salesID = salesID;
-    }
-
     public String toString(){
+    }
+
+    double bonus(){
+        return 1000*this.getClientArrayList().size();
     }
 }

@@ -1,9 +1,13 @@
 public class Client {
+
     private int clientID;
     private String clientName;
-    private Client(int clientID, String clientName){
+    private Employee employee;
+
+    public Client(int clientID, String clientName, Employee employee){
         this.clientID = clientID;
         this.clientName = clientName;
+        this.employee = employee;
     }
 
     protected int getClientID() {
@@ -22,6 +26,19 @@ public class Client {
         this.clientName = clientName;
     }
 
+    protected Employee getEmployee() {
+        return employee;
+    }
+
+    protected void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public double totalSales(){
+        return 0.0;
+    }
+
     public String toString(){
+        return "Client:" + this.clientName + "." + "salesEmployee: " + this.employee.getEmployeeName() + " " + this.employee.getSalesID();
     }
 }

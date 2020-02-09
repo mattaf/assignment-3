@@ -5,20 +5,17 @@ public class SalesManager extends Employee {
     protected ArrayList<Employee> employees;
     protected SalesManager manager;
     protected long salesID;
+    private ArrayList<Client> clientArrayList = new ArrayList<Client>();
 
-    protected SalesManager(String employeeName, ArrayList<Employee> employees, SalesManager manager, long salesID){
-        this.employeeName = employeeName;
+    protected SalesManager(String employeeName, ArrayList<Employee> employees, long salesID, ArrayList<Client> clientArrayList){
+        super(clientArrayList, employeeName, salesID);
         this.employees = employees;
-        this.manager = manager;
-        this.salesID = salesID;
+
     }
 
-    protected String getEmployeeName() {
-        return employeeName;
-    }
-
-    protected void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    protected SalesManager(String employeeName, SalesManager salesManager1, long salesID, ArrayList<Client> clientArrayList){
+        super(clientArrayList, employeeName, salesID);
+        this.manager = salesManager1;
     }
 
     protected ArrayList<Employee> getEmployees() {
@@ -37,19 +34,11 @@ public class SalesManager extends Employee {
         this.manager = manager;
     }
 
-    protected long getSalesID() {
-        return salesID;
-    }
-
-    protected void setSalesID(long salesID) {
-        this.salesID = salesID;
-    }
-
     double bonus(){
-        5000*this.
+        return 5000*employees.size() + 2000*this.getClientArrayList().size();
     }
 
-    public String toString(){
-
-    }
+//    public String toString(){
+//
+//  }
 }
